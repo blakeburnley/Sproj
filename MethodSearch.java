@@ -26,7 +26,7 @@ public class MethodSearch {
 		
 		List<String> f = readFile(fileName); //iterate over a file, save as a list?
 		
-		regexMatches(f); //search it for a string
+		//regexMatches(f); //search it for a string
 	}
 	
 	public static List<String> readFile(String filename){
@@ -36,11 +36,23 @@ public class MethodSearch {
 		try{
 			BufferedReader reader = new BufferedReader(new FileReader(filename));
 			String line;
+			int count = 0;
+			String pattern = "java\\/io.+";
+			Pattern r = Pattern.compile(pattern); 
 			while ((line = reader.readLine()) != null){
-				records.add(line);
-	
-		    }
+				
+				
+				Matcher m = r.matcher(line); // Now create matcher object.
+				if (m.find( )) {
+					System.out.println("Found value: " + m.group(0) );
+					//System.out.println("Found value: " + m.group(1) );
+				    //System.out.println("Found value: " + m.group(2) );
+					count++;
+					records.add(line);
+				}	
+			}
 		    reader.close();
+		    System.out.println(count);
 		    return records;
 		}
 		  
@@ -51,7 +63,9 @@ public class MethodSearch {
 		}
 	}
 	
-	public static void regexMatches(List<String> l) {
+/*
+ * 
+   	public static void regexMatches(List<String> l) {
 		
 		int count = 0; //create counter
 		
@@ -72,5 +86,6 @@ public class MethodSearch {
 			}
 		}
 	    System.out.println(count);
-	}		
+	}
+*/		
 }

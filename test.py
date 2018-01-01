@@ -1,7 +1,6 @@
 #Blake Burnley
 #Senior Project
 #Testing file for Python
-import os, sys, re, regex
 import methodFinder
 
 #Add line that creates the byte code from class file
@@ -9,19 +8,12 @@ import methodFinder
 
 
 #Select only the lines that have 'Method' in them
-os.system("sed -n '/Method/p' testByteCode.txt > test.txt")
+methodFinder.selectMethods("testByteCode.txt","Method","test.txt")
 
-#Use this to get the actual method name
-os.system("awk -F Method '{print $2}' test.txt > tmp.txt")
+#Use this to get the actual method name: Is this needed?
 
-#Use this to sort the lines alphabetically
-os.system("sort -k1 tmp.txt > test.txt")
+#Use this to sort the lines alphabetically: Is this needed?
 
-#Use this to see output
-#os.system("cat test.txt")
-
-#Delete the tmp file
-os.system("rm tmp.txt")
 
 #Can tailor this for specific methods
 #this is adding a new line character to the pattern

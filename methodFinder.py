@@ -7,16 +7,23 @@ import re
 
 
 #Function that makes new file without lines that dont have pattern
+def selectMethods(fileName,pattern,outfile):
+	fh = open(fileName,"r")
+	of = open(outfile, "w+")
+
+	#loop
+	for l in fh:
+	    if (re.search(pattern,l)):
+	    	of.write(l)
+
+	#close file
+	fh.close()
+	of.close()
 
 
 #Function that removes everything that isn't the Method >is this needed
 
-
-
 #Function that sorts it > is this needed?
-
-
-
 
 #Basic regex search Function
 #Run this in a loop with a file that has the patterns
@@ -29,6 +36,7 @@ def methodCounter(fileName,pattern):
 	methodCounter.prop=0
 	#pattern = 'java' #for some reason it is adding \n to pattern from file
 
+	#loop
 	for l in fh:
 	    methodCounter.lc +=1
 	    if (re.search(pattern,l)):

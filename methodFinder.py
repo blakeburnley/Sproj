@@ -14,16 +14,18 @@ def selectMethods(fileName,pattern,outfile):
 	#loop
 	for l in fh:
 	    if (re.search(pattern,l)):
-	    	of.write(l)
-
+	    	#of.write(l)
+	    	m = re.search("(Method).+",l)
+	    	of.write(m.group(0)+"\n")
 	#close file
 	fh.close()
 	of.close()
 
 
-#Function that removes everything that isn't the Method >is this needed
-
-#Function that sorts it > is this needed?
+#Function that removes everything that isn't the Method 
+#	>is this needed? Part of prior function
+#Function that sorts it 
+#	> is this needed? No
 
 #Basic regex search Function
 #Run this in a loop with a file that has the patterns
